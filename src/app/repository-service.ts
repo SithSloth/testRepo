@@ -8,9 +8,11 @@ import { Injectable } from "@angular/core";
 })
 export class RepositoryService {
 
+  private apiUri: string = 'https://localhost:7106/api/Event'
+
   constructor(private http: HttpClient) { }
 
-  apiUri: string = 'https://localhost:7106/api/Event'
+  
 
   getEvents(){
     return this.http.get(this.apiUri)
@@ -20,7 +22,7 @@ export class RepositoryService {
     return this.http.post(`${this.apiUri}/add`,event);
   }
 
-  getEventDetails(index: number){
+  getEventDetails(index: string){
     let newUri = `${this.apiUri}/${index}`
     return this.http.get<IEvent>(newUri)
   }
