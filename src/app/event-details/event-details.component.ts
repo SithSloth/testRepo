@@ -11,15 +11,16 @@ import { NgForm } from '@angular/forms';
 })
 export class EventDetailsComponent {
   @Input() index: string = "";
-  eventDetails: IEvent | undefined;
+  Details: IEvent | undefined;
+  
 
-  constructor(private route: ActivatedRoute, private  repo:RepositoryService) { }
+  constructor(private  repo:RepositoryService) { }
 
-
+  
   ngOnInit(): void {
     
-    this.repo.getEventDetails(this.index).subscribe(
-      (response) => {this.eventDetails = response;});
+    this.repo.getEventDetails(Number(this.index)).subscribe(
+      (response) => {this.Details = response;});
   }
 
 

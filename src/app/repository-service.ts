@@ -1,4 +1,4 @@
-import { IEvent } from "./interfaces/event";
+import { IEvent } from './interfaces/event';
 import{HttpClient} from '@angular/common/http';
 import { Injectable } from "@angular/core";
 
@@ -8,7 +8,7 @@ import { Injectable } from "@angular/core";
 })
 export class RepositoryService {
 
-  private apiUri: string = 'https://localhost:7106/api/Event'
+  private apiUri: string = 'https://localhost:7106/api/Event/'
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class RepositoryService {
     return this.http.post(`${this.apiUri}/add`,event);
   }
 
-  getEventDetails(index: string){
+  getEventDetails(index: number){
     let newUri = `${this.apiUri}/${index}`
     return this.http.get<IEvent>(newUri)
   }

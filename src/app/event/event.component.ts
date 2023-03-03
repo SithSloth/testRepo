@@ -13,7 +13,7 @@ export class EventComponent {
   
   constructor(private repositoryService: RepositoryService) { }
   events: any;
-  eventID: string = "";
+  eventID: number = 0;
   name: string="";
   description: string = "";
   price: number = 0.00;
@@ -48,6 +48,10 @@ export class EventComponent {
 
   }
   
+  getDeets(id: number){
+    
+    this.repositoryService.getEventDetails(id)
+  }
   // getEvents() {
   //   this.repositoryService.getEvents().subscribe(
   //     (response) => {

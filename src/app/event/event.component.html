@@ -1,18 +1,25 @@
 <div>
   <h3>Event List</h3>
-  <div *ngFor="let event of events">
-      <h3>{{event.name}}</h3>
-      
+  <div *ngFor="let party of events">
+      <!-- <a [routerLink]="['app-event-details/' +party.eventID]" (click)="getDeets(party.eventID)"  routerLinkActive="active">{{party.name}}</a> -->
+      <app-event-details index={{eventID}}></app-event-details>
   </div>
 </div>
 
+<!-- <div>
+  <h3>Classes</h3>
+  <div *ngFor="let class of characterClasses.results">
+      <h3>{{class.index | uppercase}}</h3>
+      <app-character-class-details index={{class.index}}></app-character-class-details>
+  </div>
+</div> -->
 
 
-<form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm)">
+<!-- <form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm)">
   <p><label for="name">Event Name:</label> <input name="name" id="name" ngModel /> </p>
   <p> <label for="description">Description:</label> <input name="description" id="description" ngModel /></p>
   <p> <label for="date">Date of Event:</label> <input name="date" id="date" ngModel /></p>
   <p> <label for="location">Location:</label> <input name="location" id="location" ngModel /></p>
   <p> <label for="price">Price:</label> <input name="price" id="price" ngModel /></p>
-  <p><button>Add New Event</button></p>
-  </form>
+  <p><button (click)="addEvent(newEventForm)">Add New Event</button></p>
+  </form> -->
